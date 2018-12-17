@@ -17,17 +17,18 @@ function changeText(){
     const element = elems[i]
     for (let j = 0; j < element.attributes.length; j++) {
       const attr = element.attributes[j];
-      if(attr.nodeName.indexOf('ng-bind')>=0){
-        if(attr.nodeName === "q-model"){
-          if(element.value !== data[attr.nodeValue]){ //做一次值的检查
-            element.setAttribute("value",data[attr.nodeValue])
+      if(attr.nodeName.indexOf('q-event')>=0){
+        let dataKey = element.getAttribute("ng-bind")
+        if(attr.nodeValue === dataKey){
+          if(element.value !== data[dataKey]){ //做一次值的检查
+            element.setAttribute(dataKey,data[dataKey])
+            data[dataKey] = element.value
           }
           
         } else{
-          if(element.innerHTML !==data[attr.nodeValue]){ //做一次值的检查
-            element.innerHTML = data[attr.nodeValue]
+          if(element.innerHTML !==data[dataKey]){ //做一次值的检查
+            element.innerHTML = data[dataKey]
           }
-
         }
       }
     }

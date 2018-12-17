@@ -5,12 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>双向数据绑定之脏值检查</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   
 </head>
 <body>
   <input q-event="value" id="input" ng-bind="value" type="text">
-  <p q-event="value" id="text" ng-bind="value"></p>
+  <p q-event="text" id="text" ng-bind="value"></p>
 </body>
 <script src="./script/checkBind.js"></script>
 </html>
